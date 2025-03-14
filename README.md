@@ -23,30 +23,26 @@ USE TeaOrderDB;
 2. 選擇 `TeaOrderDB` 作為當前資料庫。
 3. 點擊 **執行 (Execute)** 來創建表。
 
-🔹 **使用 `sqlcmd` 命令列執行**
-```sh
-sqlcmd -S YOUR_SERVER -U YOUR_USER -P YOUR_PASSWORD -d TeaOrderDB -i script/TeaTable.sql
-```
-
-📌 **請更換以下參數**
-- `YOUR_SERVER` → 你的 SQL Server 名稱（如 `localhost`）。
-- `YOUR_USER` → 你的 SQL Server 帳號（如 `sa`）。
-- `YOUR_PASSWORD` → 你的 SQL Server 密碼。
-
 ---
 
 ## 3️⃣ 執行 `Procedures` 內所有 SQL 檔案
-請執行 `Procedures` 資料夾內的所有 `.sql` 檔案，來建立所需的 **Stored Procedures (儲存過程)**。
+請使用 `create_procedures.bat` 來批次執行 `Procedures` 資料夾內的所有 `.sql` 檔案，以建立所需的 **Stored Procedures (儲存過程)**。
 
-🔹 **使用 SSMS 執行**
+🔹 **使用批次檔 `create_procedures.bat` 自動執行**
+1. 確保所有 `Stored Procedure` 的 `.sql` 檔案位於 `Procedures` 資料夾內。
+2. 直接執行 `create_procedures.bat`，或在 `CMD` 中輸入：
+   ```sh
+   create_procedures.bat
+   ```
+3. 批次檔將會自動遍歷 `Procedures` 資料夾內的所有 `.sql` 檔案，並依序執行。
+4. 如果有錯誤，請檢查 `TeaOrderDB` 是否已正確建立，並確保 `Stored Procedure` 的語法正確。
+
+🔹 **手動執行（如果不使用批次檔）**
 1. 在 **SQL Server Management Studio (SSMS)** 內打開 `Procedures` 資料夾的所有 `.sql` 檔案。
 2. 確保當前資料庫已選擇 `TeaOrderDB`。
 3. 依序執行所有 SQL 檔案。
 
-🔹 **使用 `sqlcmd` 一次執行所有 `Stored Procedures`**
-```sh
-for %%f in (Procedures/*.sql) do sqlcmd -S YOUR_SERVER -U YOUR_USER -P YOUR_PASSWORD -d TeaOrderDB -i %%f
-```
+🚀 **使用 `create_procedures.bat`，可以更快速自動化建立 `Stored Procedures`，無需手動執行每個檔案！**
 
 ---
 

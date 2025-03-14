@@ -112,6 +112,7 @@ CREATE TABLE Products (
     CreateUser NVARCHAR(100) NOT NULL,
     ModifyAt DATETIME NOT NULL DEFAULT GETDATE(),
     ModifyUser NVARCHAR(100) NULL,
+    IsDeleted BIT NOT NULL DEFAULT 0,
     FOREIGN KEY (CategoryId) REFERENCES ProductCategories(Id)
 );
 
@@ -231,3 +232,7 @@ CREATE TYPE OrderItemTableType AS TABLE
     Remark NVARCHAR(MAX),
     CreateUser NVARCHAR(100)
 );
+
+CREATE TYPE IntList AS TABLE (
+    Id INT PRIMARY KEY
+);  
