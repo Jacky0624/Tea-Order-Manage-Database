@@ -46,34 +46,47 @@ CREATE TABLE UserPermissions (
     FOREIGN KEY (UserId) REFERENCES Users(Id) ON DELETE CASCADE,
     FOREIGN KEY (PermissionId) REFERENCES Permissions(Id) ON DELETE CASCADE
 );
-INSERT INTO [TeaOrder].[dbo].[Permissions] ([Name], [Description])
+INSERT INTO Permissions ([Name], [Description])
 VALUES 
     ('ORDER_MANAGE', '訂單管理'),
     ('PRODUCT_MANAGE', '商品管理'),
     ('ACCOUNT_MANAGE', '帳號管理');
 
-INSERT INTO [TeaOrder].[dbo].[Roles] ([Name], [Description])
+INSERT INTO Roles ([Name], [Description])
 VALUES 
     ('Admin', '系統管理員'),
     ('Manager', '管理者'),
     ('User', '一般使用者');
 
 
-INSERT INTO [TeaOrder].[dbo].[RolePermissions] ([RoleId], [PermissionId])
+INSERT INTO RolePermissions ([RoleId], [PermissionId])
 VALUES 
     (1, 1), 
     (1, 2), 
     (1, 3);
 
-INSERT INTO [TeaOrder].[dbo].[RolePermissions] ([RoleId], [PermissionId])
+INSERT INTO RolePermissions ([RoleId], [PermissionId])
 VALUES 
     (2, 1),
     (2, 2); 
 
-INSERT INTO [TeaOrder].[dbo].[RolePermissions] ([RoleId], [PermissionId])
+INSERT INTO RolePermissions ([RoleId], [PermissionId])
 VALUES 
     (3, 1); 
 
+INSERT INTO Users (Username, Account, PasswordHash, RoleId, IsDeleted, CreateAt, CreateUser, ModifyAt, ModifyUser, DeleteAt, DeleteUser) VALUES (
+    'Jacky', 
+    'a29803904', 
+    '$2a$12$bDRjBm5/HpMUixLfCdnCouHcqVvRLVLeu5jDEBvXP/kM.tyTHhL3m', 
+    1, 
+    0, 
+    '2025-03-10 10:32:11.333', 
+    'System', 
+    '2025-03-14 10:43:43.997', 
+    '2', 
+    NULL, 
+    NULL
+);
 CREATE TABLE ProductCategories (
     Id INT PRIMARY KEY IDENTITY(1,1),
     CategoryName NVARCHAR(255) NOT NULL,
