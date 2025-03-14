@@ -22,6 +22,7 @@ USE TeaOrderDB;
 1. 在 **SQL Server Management Studio (SSMS)** 內開啟 `TeaTable.sql`。
 2. 選擇 `TeaOrderDB` 作為當前資料庫。
 3. 點擊 **執行 (Execute)** 來創建表。
+![資料表創建](assets/images/createTable.png)
 
 ---
 
@@ -43,6 +44,7 @@ USE TeaOrderDB;
 3. 依序執行所有 SQL 檔案。
 
 🚀 **使用 `create_procedures.bat`，可以更快速自動化建立 `Stored Procedures`，無需手動執行每個檔案！**
+![Procedure創建](assets/images/createProcedures.png)
 
 ---
 
@@ -50,13 +52,13 @@ USE TeaOrderDB;
 可以使用以下 SQL 檢查 `TeaOrderDB` 是否包含所有資料表和存儲過程：
 
 ```sql
--- 查詢所有資料表
+--查詢所有資料表
 SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE';
 
--- 查詢所有儲存過程
+--查詢所有儲存過程
 SELECT name FROM sys.procedures;
 ```
-
+![result](assets/images/result.png)
 執行後，如果看到所有必要的表和存儲過程，則表示 `TeaOrderDB` 設定成功！
 
 ---
